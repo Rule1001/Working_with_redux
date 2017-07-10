@@ -1,6 +1,17 @@
 import { expect } from 'chai';
-import { reducer, initialState } from '../reducer/reducer';
 import * as actions from '../actions/actions';
+import reducer from '../reducer/index';
+
+const initialState = {
+  basket: {
+
+  },
+  stock: {
+    'Tomato': 10,
+    'Tofu': 10,
+    'Potato': 10
+  }
+};
 
 describe('REDUCER', function () {
   it('is a function', function () {
@@ -18,13 +29,6 @@ describe('REDUCER', function () {
           'Potato': 10
         }
       });
-    });
-
-    it('does nothing if the requested item is not in stock', function () {
-      const action = actions.addToBasket('Mung beans');
-      const newState = reducer(initialState, action);
-      expect(newState).to.eql(initialState);
-      expect(newState).to.equal(initialState);
     });
 
     it('does not mutate the initialState', function () {

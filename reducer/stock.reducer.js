@@ -6,12 +6,12 @@ const initialState = {
   'Potato': 10
 };
 
-export function basketReducer(prevState = initialState, action) {
-
+export function stockReducer (prevState = initialState, action) {
   if (!action) return prevState;
 
   if (action.type === types.ADD_TO_BASKET) {
     if (!action.item) return prevState;
+
     if (!prevState[action.item]) return prevState;
 
     const newState = Object.assign({}, prevState);
